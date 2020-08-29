@@ -16,6 +16,7 @@ html {
 	--accent-color: #2196f3;
 	--title-text-color: #ffffff;
 	--footer-contacts-text: rgba(255, 255, 255, 0.6);
+	--background-color: #2f303a;
 	--temporary-background-color: rgba(81, 7, 86, 0.25);
 }
 
@@ -210,6 +211,14 @@ body {
 	padding: 10px 32px;
 	min-width: 200px;
 	cursor: pointer;
+
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover,
+.btn:focus {
+	color: var(--accent-color);
+	background-color: var(--title-text-color);
 }
 
 /*Section titles*/
@@ -496,21 +505,65 @@ body {
 	fill: currentColor;
 }
 
-.mailing {
+.subscription {
 	margin-left: auto;
 }
-.mailing-list {
+
+.subscription-form {
 	display: flex;
 }
-.btn-fake {
-	display: inline-block;
-	padding: 10px 30px;
-	min-width: 200px;
+.mail-sub {
+	font-size: 16px;
+	line-height: 1, 250;
+	letter-spacing: 0.03em;
 
+	width: 358px;
+
+	padding: 15px 16px;
+	margin-right: 12px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	border-radius: 4px;
+	background-color: var(--background-color);
+	color: var(--footer-contacts-text);
+}
+
+.mail-sub::placeholder {
+	font-size: 16px;
+	line-height: 1.25;
+	letter-spacing: 0.03em;
+
+	color: var(--footer-contacts-text);
+}
+
+.btn-submit {
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 1.875;
+	letter-spacing: 0.06em;
+	color: var(--title-text-color);
+	background: var(--accent-color);
+
+	display: flex;
 	align-items: center;
 	text-align: center;
-	border-radius: 8px;
-	background-color: gray;
+	border-radius: 4px;
+	border: none;
+	padding: 10px 29px;
+	min-width: 200px;
+	cursor: pointer;
+
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-send {
+	fill: currentColor;
+	margin-left: 10px;
+}
+
+.btn-submit:hover,
+.btn-submit:focus {
+	color: var(--accent-color);
+	background-color: var(--title-text-color);
 }
 
 /* Portfolio */
