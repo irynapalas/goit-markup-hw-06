@@ -686,29 +686,37 @@ body {
 	left: 0;
 	right: 0;
 	bottom: 0;
+	width: 100%;
+	height: 100%;
 	background-color: rgba(0, 0, 0, 0.2);
-	/* opacity: 1; */
+
+	opacity: 1;
 	transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden {
-	visibility: hidden;
+	/* visibility: hidden; */
 	pointer-events: none;
 	opacity: 0;
+}
+.backdrop.is-hidden .modal {
+	transform: translate(-50%, -50%) scale(1.2);
 }
 .modal {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	padding: 40px;
 
 	width: 100%;
 	max-width: 528px;
-	height: 581px;
-	padding: 40px;
+	/* height: 581px; */
 
 	background: var(--title-text-color);
 	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
+
+	transform: translate(-50%, -50%) scale(1);
+	transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-close {
 	display: flex;
@@ -725,6 +733,8 @@ body {
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-radius: 50%;
 	cursor: pointer;
+
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-close:hover {
 	border-color: var(--accent-color);
@@ -734,4 +744,166 @@ body {
 }
 .symbol {
 	fill: black;
+}
+
+/* Form in modal window */
+.form-title {
+	display: block;
+	text-align: center;
+	margin-bottom: 12px;
+
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 1.15;
+	letter-spacing: 0.03em;
+}
+
+.form-field,
+.comment-field {
+	position: relative;
+	margin-bottom: 10px;
+
+	display: flex;
+	flex-direction: column;
+}
+.comment-field {
+	margin-bottom: 20px;
+}
+.input-label {
+	margin-bottom: 4px;
+
+	font-size: 12px;
+	line-height: 1.167;
+	letter-spacing: 0.01em;
+	color: var(--secondary-text-color);
+}
+.input-field {
+	width: 100%;
+	height: 40px;
+	padding: 11px 12px;
+	padding-left: 35px;
+
+	font-size: 16px;
+
+	border: 1px solid rgba(33, 33, 33, 0.2);
+	border-radius: 4px;
+
+	transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-icon {
+	position: absolute;
+	top: 28px;
+	left: 12px;
+	fill: currentColor;
+
+	transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input-field:focus + .form-icon,
+.input-field:hover + .form-icon {
+	color: var(--accent-color);
+	cursor: pointer;
+}
+
+.input-field:hover,
+.input-field:focus-within,
+.comment:hover,
+.comment:focus-within {
+	border: 1px solid var(--accent-color);
+	outline: none;
+	cursor: pointer;
+}
+
+.comment {
+	height: 120px;
+	padding: 12px 16px;
+
+	font-size: 16px;
+
+	resize: none;
+
+	border: 1px solid rgba(33, 33, 33, 0.2);
+	border-radius: 4px;
+}
+
+.comment::placeholder {
+	font-size: 12px;
+	line-height: 1.167;
+	letter-spacing: 0.01em;
+	color: rgba(117, 117, 117, 0.5);
+
+	transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.checkbox-label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	margin-bottom: 30px;
+
+	line-height: 1.714;
+	letter-spacing: 0.03em;
+	color: var(--secondary-text-color);
+}
+
+.checkbox-input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	clip: rect(0 0 0 0);
+	overflow: hidden;
+}
+.checkbox-icon {
+	display: inline-block;
+	width: 16px;
+	height: 15px;
+	margin-right: 9px;
+
+	border: 2px solid var(--primary-text-color);
+	border-radius: 2px;
+
+	transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.checkbox-input:checked + .checkbox-icon {
+	border-color: var(--accent-color);
+	background-color: var(--accent-color);
+	background-image: url("../images/form-icons/icon-check.svg");
+	background-size: contain;
+	background-origin: border-box;
+}
+
+.checkbox-link {
+	color: var(--accent-color);
+	margin-left: 5px;
+}
+.form-btn {
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 1.875;
+	letter-spacing: 0.06em;
+	color: var(--title-text-color);
+	background: var(--accent-color);
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+	display: inline-block;
+	justify-content: center;
+	border-radius: 4px;
+	border: none;
+	padding: 10px 55px;
+	min-width: 200px;
+	cursor: pointer;
+
+	transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form-btn:hover,
+.form-btn:focus {
+	background-color: #073356;
+	color: #5cece2;
+}
+.position-btn {
+	display: flex;
+	justify-content: center;
 }
